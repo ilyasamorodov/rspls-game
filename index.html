@@ -49,7 +49,7 @@
           if (hChoice == cChoice)
             return "draw";
 
-          if ((hChoice - cChoice) >= 1)
+          if ((hChoice - cChoice) >= 1 || (hChoice - cChoice)  == -2)
             return "win";
           else
             return "loose";
