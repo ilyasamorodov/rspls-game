@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Камень-Ножницы-Бумага</title>
+
+  <style type="text/css">
+    * {padding:0px;margin:0px;}
+    #main {padding:50px;border:1px solid #000;}
+    #main .button {}
+    #main .buttons input[type="button"] {padding:10px;color: #fff;font-size:3em;}
+    #main .results {}
+    #main .results input[type="text"] {display:block;width:50%;font-size:3em;text-align: center;}
+
+    .red {background: #800;}
+    .green {background: #080;}
+    .blue {background: #008;}
+  </style>
+</head>
+<body>
+  <div id="main">
+
+    <div class="buttons" id="buttons">
+      <input class="red" type="button" value="Rock" data-choice="3" />
+      <input class="green" type="button" value="Scissors" data-choice="2" />
+      <input class="blue" type="button" value="Paper" data-choice="1" />
+    </div>
+
+    <div class="results">
+      <input type="text" name="Computerchoice" value="" />
+      <input type="text" name="result" value="" />
+    </div>
+
+    <script type="text/javascript">
+        var buttons = document.querySelector("#buttons");
+        buttons.addEventListener("click", function(e){
+
+          var humanChoice = e.target.dataset.choice;
+          var computerChoice = getRandomChoice();
+
+          //console.log(computerChoice);
+
+          document.querySelector("[name='Computerchoice']").value = computerChoice;
+          document.querySelector("[name='result']").value = chooseWinner(humanChoice, computerChoice);
+
+        });
+
+        function chooseWinner(hChoice, cChoice) {
+
+          if (hChoice == cChoice)
+            return "draw";
+
+          if ((hChoice - cChoice) >= 1)
+            return "win";
+          else
+            return "loose";
+        }
+
+        function getRandomChoice() {
+          return getRandomInt(1, 3);
+        }
+
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+    </script>
+
+  </div>
+</body>
+</html>
