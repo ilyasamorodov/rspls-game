@@ -1,70 +1,107 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Камень-Ножницы-Бумага</title>
 
-  <style type="text/css">
-    * {padding:0px;margin:0px;}
-    #main {padding:50px;border:1px solid #000;}
-    #main .button {}
-    #main .buttons input[type="button"] {padding:10px;color: #fff;font-size:3em;}
-    #main .results {}
-    #main .results input[type="text"] {display:block;width:50%;font-size:3em;text-align: center;}
-
-    .red {background: #800;}
-    .green {background: #080;}
-    .blue {background: #008;}
-  </style>
-</head>
-<body>
-  <div id="main">
-
-    <div class="buttons" id="buttons">
-      <input class="red" type="button" value="Rock" data-choice="3" />
-      <input class="green" type="button" value="Scissors" data-choice="2" />
-      <input class="blue" type="button" value="Paper" data-choice="1" />
-    </div>
-
-    <div class="results">
-      <input type="text" name="Computerchoice" value="" />
-      <input type="text" name="result" value="" />
-    </div>
-
-    <script type="text/javascript">
-        var buttons = document.querySelector("#buttons");
-        buttons.addEventListener("click", function(e){
-
-          var humanChoice = e.target.dataset.choice;
-          var computerChoice = getRandomChoice();
-
-          //console.log(computerChoice);
-
-          document.querySelector("[name='Computerchoice']").value = computerChoice;
-          document.querySelector("[name='result']").value = chooseWinner(humanChoice, computerChoice);
-
-        });
-
-        function chooseWinner(hChoice, cChoice) {
-
-          if (hChoice == cChoice)
-            return "draw";
-
-          if ((hChoice - cChoice) >= 1 || (hChoice - cChoice)  == -2)
-            return "win";
-          else
-            return "loose";
-        }
-
-        function getRandomChoice() {
-          return getRandomInt(1, 3);
-        }
-
-        function getRandomInt(min, max) {
-          return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-    </script>
-
-  </div>
-</body>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Классическая игра Камень-Ножницы-Бумага на HTML5"/>
+		<meta name="keywords" content="игра, камень, ножницы, бумага, html5, развратные, школьницы, javascript, домашнее, задание"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Игра &laquo;Камень-Ножницы-Бумага-Ящерица-Спок&raquo;</title>
+		
+		<style type="text/css">
+		* {margin:0px;padding:0px;font-family: "Segoe UI Light";font-weight:100;color:#fff;}
+		body {background:#38abdb;}
+		
+		#game h1, h3 {font-size:2.5em;}
+		#game h3 {font-size: 1.4em;}
+		
+		#game ul {list-style-type: none;text-align:center;}
+		#game ul li {display: inline-block;}
+		
+		#game {width: 730px; margin: 0 auto;}
+		#game #buttons ul li {width: 120px;height:120px;}
+		#game .result>div, #game .result> .message {height: 120px;width:120px;margin: 0 auto;font-size:5em;text-align:center;}
+		#game .result> .message {width: 730px;}
+		
+		#game .rock {background: #fff url("img/icon-rock.png") no-repeat;background-size: cover;}
+		#game .rock:hover {background: #464637 url("img/icon-rock.png") no-repeat;background-size: cover;}
+		#game .scissors {background: #fff url("img/icon-scissors.png") no-repeat;background-size: cover;}
+		#game .scissors:hover {background: #CCCCCC url("img/icon-scissors.png") no-repeat;background-size: cover;}
+		#game .paper {background: #fff url("img/icon-paper.png") no-repeat;background-size: cover;}
+		#game .paper:hover {background: #FFEFBF url("img/icon-paper.png") no-repeat;background-size: cover;}
+		#game .lizard {background: #fff url("img/icon-lizard.png") no-repeat;background-size: cover;}
+		#game .lizard:hover {background:#00B300 url("img/icon-lizard.png") no-repeat;background-size: cover;}
+		#game .spock {background: #fff url("img/icon-spock.png") no-repeat;background-size: cover;}
+		#game .spock:hover {background: #2693FF url("img/icon-spock.png") no-repeat;background-size: cover;}
+		
+		#game .unknown {background: #fff url("img/icon-unknown.png") no-repeat;background-size: cover;}
+		</style>
+	</head>
+	<body>
+		<div id="game">
+			<h1>Камень-Ножницы-Бумага-Ящерица-Спок </h1>
+			
+			<h3>Выбор пользователя</h3>
+			<div id="buttons">
+				<ul>
+					<li class="rock"  data-choice="rock"></li>
+					<li class="scissors" data-choice="scissors"></li>
+					<li class="paper" data-choice="paper"></li>
+					
+					<li class="lizard" data-choice="lizard"></li>
+					<li class="spock" data-choice="spock"></li>
+			</div>
+			
+			<h3>Выбор компьютера</h3>
+			<div class="result">
+				<div class="unknown" name="computerChoice"></div>				
+			</div>
+			
+			<h3>Результат</h3>
+			<div class="result">
+				<div class="message" name="gameResult"></div>	
+			</div>
+			
+			<script type="text/javascript">
+				var choices = ["rock", "paper", "scissors", "lizard", "spock"];
+				var results = ["Поражение", "Победа", "Ничья"];
+				var rules = {
+					"rock" : {"scissors" : 1, "paper" : 0, "lizard" : 1, "spock" : 0},
+					"scissors" : {"paper" : 1, "rock" : 0, "lizard" : 1, "spock" : 0},
+					"paper" : {"rock" : 1, "scissors" : 0, "lizard" : 0, "spock" : 1},
+					"lizard" : {"rock" : 0, "scissors" : 0, "paper" : 1, "spock" : 1},
+					"spock" : {"rock" : 1, "scissors" : 1, "paper" : 0, "lizard" : 0}
+				};											
+				
+				var buttons = document.querySelector("#buttons");
+				buttons.addEventListener("click", function(e){
+					var humanChoice = e.target.dataset.choice;
+					var computerChoice = getComputerChoice();					
+					document.querySelector("[name='computerChoice']").className = computerChoice;
+					
+					var gameResult = getWinner(humanChoice, computerChoice);					
+					document.querySelector("[name='gameResult']").innerText = results[gameResult];
+				});
+				
+				function getWinner(hChoice, cChoice){
+					if (hChoice == cChoice) 
+						return 2;
+					else
+						return rules[hChoice][cChoice];
+				}
+				
+				
+				function getComputerChoice(){
+					var choiceIndex = getRandomNumber(0,choices.length-1);
+					return choices[choiceIndex];
+				}
+				
+				function getRandomNumber(min, max){
+					return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+				
+				
+			</script>
+		</div>		
+	</body>
 </html>
