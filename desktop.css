@@ -1,0 +1,50 @@
+* {margin:0px;padding:0px;font-family: "Segoe UI Light", Helvetica;font-weight:100;color:#fff;}
+
+body {background:#FFFFFF;}
+
+.game {background:#38abdb;padding:42px;height:400px;}
+.game h1, h3 {font-size:2.5em;}
+.game h3 {font-size: 1.4em;}
+.game h2 {margin-bottom: 20px;}
+
+
+.game .user {width:400px;float:left;position:relative;}
+.game .computer {width:300px;float:left;position:relative;}
+.game .result {width:300px;float:left;position:relative;}
+
+.game ul {list-style-type: none;text-align:center;}
+.game ul li {display: inline-block;}
+
+.game ul li {width: 120px;height:120px;}
+.game .computer>div, .game .result> .message {height: 120px;width:120px;margin: 0 auto;font-size:3em;text-align:center;}
+
+.game .rock {background: #fff url("img/icon-rock.png") no-repeat;background-size: cover;}
+.game .rock:hover {background: #464637 url("img/icon-rock.png") no-repeat;background-size: cover;}
+.game .scissors {background: #fff url("img/icon-scissors.png") no-repeat;background-size: cover;}
+.game .scissors:hover {background: #CCCCCC url("img/icon-scissors.png") no-repeat;background-size: cover;}
+.game .paper {background: #fff url("img/icon-paper.png") no-repeat;background-size: cover;}
+.game .paper:hover {background: #FFEFBF url("img/icon-paper.png") no-repeat;background-size: cover;}
+.game .lizard {background: #fff url("img/icon-lizard.png") no-repeat;background-size: cover;}
+.game .lizard:hover {background:#00B300 url("img/icon-lizard.png") no-repeat;background-size: cover;}
+.game .spock {background: #fff url("img/icon-spock.png") no-repeat;background-size: cover;}
+.game .spock:hover {background: #2693FF url("img/icon-spock.png") no-repeat;background-size: cover;}
+.game .unknown {background: #fff url("img/icon-unknown.png") no-repeat;background-size: cover;}
+
+.header {box-sizing: border-box;-moz-box-sizing: border-box;width: 100%;padding: 20px 42px 20px;position: relative;background: #f1f1f1;border-bottom: 1px solid #e5e5e5;margin: 0;overflow: hidden;color: #efefef;font-size: 16px;line-height: 24px;font-weight: normal;}
+.header h1 {color:#444;}
+
+.topnav {font-size:1em;background:#444;overflow: hidden;clear: both;padding: 0 42px;}
+.topnav ul {margin: 0;padding: 12px 0;border: 0;overflow: hidden;white-space: nowrap;}
+.topnav ul li {list-style-image: none;list-style-type: none;margin-left: 0;white-space: nowrap;display: inline;float: left;padding: 0 4px 0 0;line-height: 24px;margin: 0 30px 0 0;}
+
+
+.block {background:#efefef;padding:42px;clear:both;}
+.block h1 {color: #444;}
+.block p, .block a {color: #333;}
+
+.pale {background: #F0F0E1;}
+.blue {background: #E8487F;}
+.yellow {background: #F6D55D;}
+
+/* icons */
+/* gmail, github, vk.com */
