@@ -6,66 +6,69 @@
 		<meta name="description" content="Классическая игра Камень-Ножницы-Бумага на HTML5"/>
 		<meta name="keywords" content="игра, камень, ножницы, бумага, html5, развратные, школьницы, javascript, домашнее, задание"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>Игра &laquo;Камень-Ножницы-Бумага-Ящерица-Спок&raquo;</title>		
+		<title>HTML5+JS Эксперименты</title>		
 		<link rel="stylesheet" href="desktop.css" />
 		<script type="text/javascript" src="game-logic.js" async></script>
 	</head>
-	<body>
-	
-		<div class="header">
-			<h1>HTML5+JS Эксперименты</h1>
+	<body class="neutral-scheme">
+		
+		<div class="leftpane"><a href="#header"></a></div>
+		
+		<div class="header" id="header">
+			<h1 class="text2">HTML5+JS Эксперименты</h1>
 		</div>
 		
 		<div class="topnav">
 			<ul>
-				<li><a href="#">Контакты</a></li>
-				<li><a href="#">Игра</a></li>
-				<li><a href="#">Magic</a></li>
-				<li><a href="#">Карта</a></li>
+				<li><a href="#contacts">Контакты</a></li>
+				<li><a href="#game">Игра</a></li>
+				<li><a href="#magic">Magic</a></li>
+				<li><a href="#map">Карта</a></li>
 			</ul>
 		</div>
 		
-		<div class="block gray">
-			<h1>Контакты</h1>
-			<p>&mdash; <a href="http://github.com/ilyasamorodov">ilyasamorodov@github</a></p>
+		<div class="block" id="contacts">			
+			<h2 class="dark-text">Контакты</h2>
+			<p>&mdash; <a href="http://github.com/ilyasamorodov">github/ilyasamorodov</a></p>
 			<p>&mdash; <a href="mailto://ilyasamorodov@gmail.com?subject=Илья, хочу дать тебе денег">ilyasamorodov@gmail.com</a></p>
 			<p>&mdash; <a href="http://vk.com/lassard">ВКонтакте</a></p>
 		</div>
 		
-		<div class="game">
-			<h1>Игра</h1>
-			<h3>&laquo;Камень-Ножницы-Бумага-Ящерица-Спок&raquo;</h3>
+		<div class="game color2" id="game">
+			<h2>Игра</h2>
+			<h4>&laquo;Камень-Ножницы-Бумага-Ящерица-Спок&raquo;</h4>
 			
-			<div class="user">
-				<h2>Пользователь</h2>
+			<div class="user">			
 				<ul>
-					<li class="rock"  data-choice="rock"></li>
-					<li class="scissors" data-choice="scissors"></li>
-					<li class="paper" data-choice="paper"></li>					
-					<li class="lizard" data-choice="lizard"></li>
-					<li class="spock" data-choice="spock"></li>
+					<li class="u"></li>
+					<li class="rock"  data-choice="rock"><label>Камень</label></li>
+					<li class="scissors" data-choice="scissors"><label>Ножницы</label></li>
+					<li class="paper" data-choice="paper"><label>Бумага</label></li>					
+					<li class="lizard" data-choice="lizard"><label>Ящерица</label></li>
+					<li class="spock" data-choice="spock"><label>Спок</label></li>
 				</ul>
 			</div>
 			
-
 			<div class="computer">
-				<h2>Компьютер</h2>
-				<div class="unknown" name="computerChoice"></div>				
+				<ul>
+					<li class="c"></li>
+					<li class="unknown" name="computerChoice"></li>
+				</ul>				
 			</div>
 			
-
 			<div class="result">
-				<h2>Результат</h2>
 				<div class="message" name="gameResult"></div>	
 			</div>
 		</div>
 		
-		<div class="block yellow">
-			<h1>Magic</h1>
+		<div class="block blue" id="magic">
+			<h2>Magic</h2>
+			<h3>Sorry, magic not implemented yet.</h3>
 		</div>
 		
-		<div class="block blue">
-			<h1>Карта</h1>
+		<div class="block" id="map">
+			<h2 class="dark-text">Карта</h2>
+			<h3 class="dark-text">В процессе&hellip;</h3>
 		</div>
 		
 	</body>
